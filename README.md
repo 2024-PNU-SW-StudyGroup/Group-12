@@ -168,20 +168,7 @@
 <br/>
 
 
-### 4. 설치 및 사용 방법
-**필요 패키지**
-- 위의 사용 기술 참고
-
-```bash
-$ git clone https://github.com/test/test.git
-$ cd test/frontend
-$ npm i
-$ export NODE_ENV="development" # windows: set NODE_ENV=development
-$ npm run build:dll
-$ export TARGET="http://localhost:8000"  # windows: set NODE_ENV=http://localhost:8000
-$ npm run dev
-```
-<br/>
+### 4. 설치 및 게임 방법
 
 
 ### 5. 소개 및 시연영상
@@ -190,11 +177,10 @@ $ npm run dev
 <br/>
 
 ### 6. 팀 소개
-| MEMBER1 | MEMBER2 | MEMBER3 |
-|:-------:|:-------:|:-------:|
-|<img width="100px" alt="MEMBER1" src="https://github.com/pnuswedu/SW-Hackathon-2024/assets/34933690/f5b5df2a-e174-437d-86b2-a5a23d9ee75d" /> | <img width="100px" alt="MEMBER2" src="https://github.com/pnuswedu/SW-Hackathon-2024/assets/34933690/fe4e8910-4565-4f3f-9bd1-f135e74cb39d" /> | <img width="100px" alt="MEMBER3" src="https://github.com/pnuswedu/SW-Hackathon-2024/assets/34933690/675d8471-19b9-4abc-bf8a-be426989b318" /> |
-| member1@pusan.ac.kr | member2@gmail.com | member3@naver.com |
-| 프론트앤드 개발 | 인프라 구축 <br/> 백앤드 개발 | DB 설계 <br/> 백앤드 개발 |
+| MEMBER1 | MEMBER2 | MEMBER3 | MEMBER4 | MEMBER5 | MEMBER6 |
+|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|
+| member1@pusan.ac.kr | member2@gmail.com | member3@naver.com | member3@naver.com | member3@naver.com | member3@naver.com |
+| 팀장 <br/> 클라이언트 개발 | 클라이언트 개발 | 2D 아트 | 3D 아트 | TA <br/> 3D 아트 | PM |
 
 
 <br/>
