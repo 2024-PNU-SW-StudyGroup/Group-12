@@ -1,18 +1,55 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
-public class InputReader : MonoBehaviour
+[CreateAssetMenu(fileName = "InputReader", menuName = "Game/Input Reader")]
+public class InputReader : ScriptableObject, GameInput.IGameplayActions
 {
-    // Start is called before the first frame update
-    void Start()
+    // GamePlay
+    public event UnityAction<Vector2> MoveEvent = delegate { };
+    public event UnityAction JumpEvent = delegate { };
+    public event UnityAction JumpCancelEvent = delegate { };
+    public event UnityAction PullEvent = delegate { };
+    public event UnityAction PushEvent = delegate { };
+    public event UnityAction PushCancelEvent = delegate { };
+
+    private GameInput _gameInput;
+
+    private void OnEnable()
     {
-        
+        if (_gameInput == null)
+        {
+            _gameInput = new GameInput();
+
+            _gameInput.Gameplay.SetCallbacks(this);
+            _gameInput.Gameplay.Enable();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnMovement(InputAction.CallbackContext context)
     {
-        
+        MoveEvent.Invoke(context.ReadValue<Vector2>());
+    }
+
+    void GameInput.IGameplayActions.OnJump(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Performed)
+            JumpEvent.Invoke();
+        else if (context.phase == InputActionPhase.Canceled)
+            JumpCancelEvent.Invoke();
+    }
+
+    public void OnPull(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Started) 
+            PullEvent.Invoke();
+    }
+
+    public void OnPush(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Performed)
+            PushEvent.Invoke();
+        else if (context.phase == InputActionPhase.Canceled)
+            PushCancelEvent.Invoke();
     }
 }

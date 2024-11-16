@@ -14,7 +14,7 @@ namespace Pudding.StateMachine
 
         private void Awake()
         {
-            // State Machine �ʱ�ȭ
+            // State Machine �ʱ�ȭ
             _currentState = _transitionTableSO.GetInitialState(this);
         }
 
