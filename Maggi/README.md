@@ -18,7 +18,11 @@
 - 인력/척력 : Left Mouse / Right Mouse
 
 ## 캐릭터 컨셉아트
+#### 초기 디자인
 ![image](https://github.com/user-attachments/assets/b50cc074-8bb9-4709-9a48-366c2028e6d4)
+
+#### 3D 모델링
+
 
 #### 특징
 - 자석의 성질을 띈다. 이를 활용해 물체를 던지거나, 밀고 당기기, 붙기 등등의 동작을 수행할 수 있다.
@@ -26,3 +30,21 @@
   - Light Object : 잡고 이동할 수 있고 던질 수 있는 물체
   - Heavy Object : 잡고 끌거나 밀 수 있는 물체
   - Point Object : 나사나 철봉 같은 물체에 붙을 수 있고, 원으로 회전하며 방향을 바꾸고 점프할 수 있다.
+ 
+
+## 맵 디자인
+
+#### 맵 컨셉
+전당포
+게임 시작 시 전당포의 창고에서 시작한다.
+![image](https://github.com/user-attachments/assets/fd9eeff0-72cd-4ee4-ae0b-723b3f0e734e)
+
+
+#### 보스 컨셉
+1. 앞</br>
+![image](https://github.com/user-attachments/assets/519a11ff-1fae-42bf-9232-c199b4ae5c9d)
+2. 뒤</br>
+![image](https://github.com/user-attachments/assets/b4799db4-fa03-465b-a160-ce90333c219d)
+3. 옆</br>
+![image](https://github.com/user-attachments/assets/d810735b-9ae6-4624-80de-e3f2515a5cf8)
+
