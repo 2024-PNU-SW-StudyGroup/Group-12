@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum InteractionType { None = 0, Light, Heavy, Wall };
+public enum InteractionType { None = 0, Light, Heavy, Wall, Point };
 
 public class InteractionManager : MonoBehaviour
 {
@@ -13,7 +13,7 @@ public class InteractionManager : MonoBehaviour
     [ReadOnly] public GameObject currentInteractiveObject;
     [ReadOnly] public bool pushInput;
 
-    private LinkedList<Interaction> _potentialInteractions = new LinkedList<Interaction>(); //To store the objects we the player could potentially interact with
+    private LinkedList<Interaction> _potentialInteractions = new LinkedList<Interaction>(); // To store the objects we the player could potentially interact with
 
     private void OnEnable()
     {
@@ -58,7 +58,7 @@ public class InteractionManager : MonoBehaviour
         if (obj.CompareTag("Light")) newPotentialInteraction.type = InteractionType.Light;
         else if (obj.CompareTag("Heavy")) newPotentialInteraction.type = InteractionType.Heavy;
         else if (obj.CompareTag("Wall")) newPotentialInteraction.type = InteractionType.Wall;
-
+        else if (obj.CompareTag("Point")) newPotentialInteraction.type = InteractionType.Point;
 
         if (newPotentialInteraction.type != InteractionType.None)
         {
