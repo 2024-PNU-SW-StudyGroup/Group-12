@@ -5,10 +5,11 @@ using UnityEngine;
 
 public class CameraManager : MonoBehaviour
 {
-    public InputReader inputReader;
-    public Camera mainCamera;
+    [SerializeField] private InputReader _inputReader;
+    [SerializeField] private Camera _mainCamera;
 
     [SerializeField] private TransformAnchor _playerTransformAnchor = default;
+    [SerializeField] private TransformAnchor _cameraTransformAnchor = default;
     [SerializeField] private CameraSO _currentCamera;
 
     [Header("Listening to")]
@@ -18,24 +19,30 @@ public class CameraManager : MonoBehaviour
 
     private void OnEnable()
     {
-        _playerTransformAnchor.OnAnchorProvided += SetupPlaerVirtualCamera;
+        _playerTransformAnchor.OnAnchorProvided += SetupPlayerVirtualCamera;
         _onSwitchCamera.OnEventRaised += SwitchToCamera;
+        _cameraTransformAnchor.Provide(_mainCamera.transform);
+
+        SwitchToCamera();
     }
 
     private void OnDisable()
     {
-        _playerTransformAnchor.OnAnchorProvided -= SetupPlaerVirtualCamera;
+        _playerTransformAnchor.OnAnchorProvided -= SetupPlayerVirtualCamera;
+        _onSwitchCamera.OnEventRaised -= SwitchToCamera;
     }
 
     private void Start()
     {
         virtualCams = GetComponentsInChildren<CinemachineVirtualCamera>();
+        if (virtualCams.Length == 0)
+            Debug.LogWarning("There is no virtual camera _ CameraManager.cs");
 
         if (_playerTransformAnchor.isSet)
-            SetupPlaerVirtualCamera();
+            SetupPlayerVirtualCamera();
     }
 
-    private void SetupPlaerVirtualCamera()
+    private void SetupPlayerVirtualCamera()
     {
         Transform target = _playerTransformAnchor.Value;
 

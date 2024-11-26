@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200ae7631d0f1684aa38f41ac3005397, type: 3}
   m_Name: OnSwitchCamera
   m_EditorClassIdentifier: 
-  _guid: 
-  description: 
+  _guid: 185f371f63cf4894fb067f0d758362f4
+  description: "\uD50C\uB808\uC774\uC5B4 \uC704\uCE58\uC5D0 \uB530\uB77C virtual
+    camera\uC758 \uC804\uD658\uD568"
