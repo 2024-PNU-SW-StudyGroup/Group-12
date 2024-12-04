@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 061af39711106e7429b92e360e8d7e61, type: 3}
   m_Name: PushPointAction
   m_EditorClassIdentifier: 
-  description: 
+  description: "\uBC14\uB77C\uBCF4\uB294 \uBC29\uD5A5\uC73C\uB85C \uC810\uD504"
   pushForce: 5

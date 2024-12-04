@@ -11,8 +11,11 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions, GameInp
     public event UnityAction JumpEvent = delegate { };
     public event UnityAction JumpCancelEvent = delegate { };
     public event UnityAction PullEvent = delegate { };
+    public event UnityAction PullCancelEvent = delegate { };
     public event UnityAction PushEvent = delegate { };
     public event UnityAction PushCancelEvent = delegate { };
+    public event UnityAction<Vector2> AimEvent = delegate { };
+    public event UnityAction<Vector2> AimCancelEvent = delegate { };
 
     // Menus
     public event UnityAction MenuPauseEvent = delegate { };
@@ -83,6 +86,29 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions, GameInp
     {
         if (context.phase == InputActionPhase.Performed)
             MoveSelectionEvent.Invoke();
+    }
+
+    public void OnAim(InputAction.CallbackContext context)
+    {
+        AimEvent.Invoke(context.ReadValue<Vector2>());
+    }
+
+    public void EnableGameplayInput()
+    {
+        _gameInput.Menus.Disable();
+        _gameInput.Gameplay.Enable();
+    }
+
+    public void EnableMenuInput()
+    {
+        _gameInput.Gameplay.Disable();
+        _gameInput.Menus.Enable();
+    }
+
+    public void DisableAllInput()
+    {
+        _gameInput.Gameplay.Disable();
+        _gameInput.Menus.Disable();
     }
 
     public void OnPoint(InputAction.CallbackContext context)
